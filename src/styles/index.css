@@ -9,3 +9,114 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body { display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://c0.wallpaperflare.com/preview/161/498/431/black-concrete-road-during-nighttime.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; 
+    position: relative;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+.traffic-light {
+    background-color: rgb(51, 50, 50);
+    padding: 10px;
+    display: inline-block;
+    margin: auto;
+    border-radius: 20px;
+    
+}
+.light {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%}
+.red {background-color: rgb(241, 76, 76);}    
+.yellow {background-color: rgb(243, 243, 98);}    
+.green {background-color: rgb(91, 235, 103);} 
+.glowRed  {box-shadow: 0px 0px 20px 10px rgb(223, 4, 4);}
+.glowYellow  {box-shadow: 0px 0px 20px 10px rgb(236, 221, 3);}
+.glowGreen  {box-shadow: 0px 0px 20px 10px rgb(4, 204, 4);}  
+
+.asta {
+    width: 20px;
+    height: 150px;
+    background-color: rgb(71, 71, 71);
+    margin-bottom: -10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .pulsePeaton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+     }
+  
+  .pulsePeaton {
+    background-color: #45a049; 
+  }
+
+  .estrellafugaz {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: shoot 3s linear infinite;
+  }
+  
+ 
+  @keyframes shoot {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(200px, 200px) scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(400px, 400px) scale(0);
+    }
+  }
+  
+
+  .estrellafugaz:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .estrellafugaz:nth-child(2) {
+    top: 30%;
+    left: 50%;
+    animation-delay: 1.5s;
+  }
+  
+  .estrellafugaz:nth-child(3) {
+    top: 50%;
+    left: 80%;
+    animation-delay: 3s;
+  }
+  
+  .estrellafugaz:nth-child(4) {
+    top: 70%;
+    left: 10%;
+    animation-delay: 4.5s;
+  }

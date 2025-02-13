@@ -1,26 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+	const [ selectedColor, setSelectedColor ] = useState("");
+	const [autoChange, setAutochange] = useState(true);
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	const changeColor = () => {
+		setSelectedColor((prevColor) => {
+			if (prevColor === "red") {
+				return "green";
+			} else if (prevColor === "green") {
+				return "yellow";
+			} else {
+				return "red"
+			}
+		});
+	};
+	useEffect(() => {
+		let interval;
+		if (autoChange) {
+			interval = setInterval(() => {
+				changeColor();						
+		}, 2000);
+	}
+		return () => clearInterval(interval);
+	}, [autoChange]);
+
+	const botonPulsePeaton = () => {
+		changeColor();
+	};
+
+		return (
+		<div className= "container">
+			<div className="estrellafugaz"></div>
+			<div className="estrellafugaz"></div>
+			<div className="estrellafugaz"></div>
+			<div className="estrellafugaz"></div>
+			<div className="asta"></div>
+			<div className="traffic-light">
+				<div
+					onClick={ () => setSelectedColor("red")}
+					class={"light red" + ((selectedColor === "red") ? " glowRed" : "")}></div>
+				<div
+					onClick={ () => setSelectedColor("yellow")} 
+					class={"light yellow" + ((selectedColor === "yellow") ? " glowYellow" : "")}></div>
+				<div 
+					onClick={ () => setSelectedColor("green")}
+					class={"light green" + ((selectedColor === "green") ? " glowGreen" : "")}></div>
+			</div>
+			<button onClick={botonPulsePeaton} className="pulsePeaton">Pulse Peaton</button>
 		</div>
 	);
 };
